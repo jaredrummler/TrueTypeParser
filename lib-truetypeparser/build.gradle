@@ -25,10 +25,18 @@ android {
         minSdkVersion 7
         targetSdkVersion 23
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+apply from: '../gradle-mvn-push.gradle'
+
+afterEvaluate {
+    androidJavadocs.classpath += project.android.libraryVariants.toList().first().javaCompile.classpath
+}

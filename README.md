@@ -1,5 +1,25 @@
 # TrueTypeParser
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/truetypeparser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/truetypeparser) [![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE) [![API](https://img.shields.io/badge/API-7%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=7)
+
 TrueType Font Parser for Android
+
+Download
+--------
+
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/truetypeparser/1.0.0/truetypeparser-1.0.0.aar) or grab via Gradle:
+
+```groovy
+compile 'com.jaredrummler:truetypeparser:1.0.0'
+```
+or Maven:
+```xml
+<dependency>
+  <groupId>com.jaredrummler</groupId>
+  <artifactId>truetypeparser</artifactId>
+  <version>1.0.0</version>
+  <type>aar</type>
+</dependency>
+```
 
 Usage
 -----
