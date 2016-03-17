@@ -15,4 +15,4 @@
  *
  */
 
-include ':app', ':lib-fontreader'
+include ':sample', ':lib-truetypeparser'
