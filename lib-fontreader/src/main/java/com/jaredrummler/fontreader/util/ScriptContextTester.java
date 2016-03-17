@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.util;
 
 import com.jaredrummler.fontreader.complexscripts.fonts.GlyphContextTester;
@@ -28,11 +26,13 @@ import com.jaredrummler.fontreader.complexscripts.fonts.GlyphContextTester;
  */
 public interface ScriptContextTester {
 
-    /**
-     * Obtain a glyph context tester for the specified feature.
-     * @param feature a feature identifier
-     * @return a glyph context tester or null if none available for the specified feature
-     */
-    GlyphContextTester getTester(String feature);
+  /**
+   * Obtain a glyph context tester for the specified feature.
+   *
+   * @param feature
+   *     a feature identifier
+   * @return a glyph context tester or null if none available for the specified feature
+   */
+  GlyphContextTester getTester(String feature);
 
 }

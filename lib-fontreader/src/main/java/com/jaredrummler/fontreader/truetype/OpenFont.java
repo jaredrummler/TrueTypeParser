@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.truetype;
 
 import android.graphics.Rect;

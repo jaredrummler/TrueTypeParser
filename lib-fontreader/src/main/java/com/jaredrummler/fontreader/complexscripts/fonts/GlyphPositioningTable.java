@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.complexscripts.fonts;
 
 import com.jaredrummler.fontreader.util.GlyphSequence;
@@ -763,7 +761,7 @@ public class GlyphPositioningTable extends GlyphTable {
   private static class CursiveSubtableFormat1 extends CursiveSubtable {
 
     private Anchor[] aa;
-        // anchor array, where even entries are entry anchors, and odd entries are exit anchors
+    // anchor array, where even entries are entry anchors, and odd entries are exit anchors
 
     CursiveSubtableFormat1(String id, int sequence, int flags, int format, GlyphCoverageTable coverage, List entries) {
       super(id, sequence, flags, format, coverage, entries);
@@ -909,7 +907,7 @@ public class GlyphPositioningTable extends GlyphTable {
     private int nmc;                                // mark class count
     private MarkAnchor[] maa;                       // mark anchor array, ordered by mark coverage index
     private Anchor[][] bam;
-        // base anchor matrix, ordered by base coverage index, then by mark class
+    // base anchor matrix, ordered by base coverage index, then by mark class
 
     MarkToBaseSubtableFormat1(String id, int sequence, int flags, int format, GlyphCoverageTable coverage,
                               List entries) {
@@ -1087,7 +1085,7 @@ public class GlyphPositioningTable extends GlyphTable {
     private int mxc;                                // maximum ligature component count
     private MarkAnchor[] maa;                       // mark anchor array, ordered by mark coverage index
     private Anchor[][][] lam;
-        // ligature anchor matrix, ordered by ligature coverage index, then ligature component, then mark class
+    // ligature anchor matrix, ordered by ligature coverage index, then ligature component, then mark class
 
     MarkToLigatureSubtableFormat1(String id, int sequence, int flags, int format, GlyphCoverageTable coverage,
                                   List entries) {
@@ -1261,7 +1259,7 @@ public class GlyphPositioningTable extends GlyphTable {
     private int nmc;                                // mark class count
     private MarkAnchor[] maa;                       // mark1 anchor array, ordered by mark1 coverage index
     private Anchor[][] mam;
-        // mark2 anchor matrix, ordered by mark2 coverage index, then by mark1 class
+    // mark2 anchor matrix, ordered by mark2 coverage index, then by mark1 class
 
     MarkToMarkSubtableFormat1(String id, int sequence, int flags, int format, GlyphCoverageTable coverage,
                               List entries) {

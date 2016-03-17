@@ -28,9 +28,6 @@ import static com.jaredrummler.fontreader.io.IOUtils.EOF;
  * Typically uses of this class include testing for corner cases in methods
  * that accept input streams and acting as a sentinel value instead of a
  * {@code null} input stream.
- *
- * @version $Id$
- * @since 1.4
  */
 public class ClosedInputStream extends InputStream {
 

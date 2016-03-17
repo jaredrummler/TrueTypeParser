@@ -25,26 +25,27 @@ public class CodePointMapping {
   private char[] latin1Map;
   private char[] characters;
   private char[] codepoints;
-  private CodePointMapping(int [] table) {
+
+  private CodePointMapping(int[] table) {
     int nonLatin1 = 0;
     latin1Map = new char[256];
-    for(int i = 0; i < table.length; i += 2) {
-      if(table[i+1] < 256)
-        latin1Map[table[i+1]] = (char) table[i];
+    for (int i = 0; i < table.length; i += 2) {
+      if (table[i + 1] < 256)
+        latin1Map[table[i + 1]] = (char) table[i];
       else
         ++nonLatin1;
     }
     characters = new char[nonLatin1];
     codepoints = new char[nonLatin1];
     int top = 0;
-    for(int i = 0; i < table.length; i += 2) {
-      char c = (char) table[i+1];
-      if(c >= 256) {
+    for (int i = 0; i < table.length; i += 2) {
+      char c = (char) table[i + 1];
+      if (c >= 256) {
         ++top;
-        for(int j = top - 1; j >= 0; --j) {
-          if(j > 0 && characters[j-1] >= c) {
-            characters[j] = characters[j-1];
-            codepoints[j] = codepoints[j-1];
+        for (int j = top - 1; j >= 0; --j) {
+          if (j > 0 && characters[j - 1] >= c) {
+            characters[j] = characters[j - 1];
+            codepoints[j] = codepoints[j - 1];
           } else {
             characters[j] = c;
             codepoints[j] = (char) table[i];
@@ -54,18 +55,19 @@ public class CodePointMapping {
       }
     }
   }
+
   public final char mapChar(char c) {
-    if(c < 256) {
+    if (c < 256) {
       return latin1Map[c];
     } else {
       int bot = 0, top = characters.length - 1;
-      while(top >= bot) {
+      while (top >= bot) {
         int mid = (bot + top) / 2;
         char mc = characters[mid];
 
-        if(c == mc)
+        if (c == mc)
           return codepoints[mid];
-        else if(c < mc)
+        else if (c < mc)
           top = mid - 1;
         else
           bot = mid + 1;
@@ -75,76 +77,51 @@ public class CodePointMapping {
   }
 
   private static Map mappings;
+
   static {
     mappings = Collections.synchronizedMap(new java.util.HashMap());
   }
+
   public static CodePointMapping getMapping(String encoding) {
     CodePointMapping mapping = (CodePointMapping) mappings.get(encoding);
-    if(mapping != null) {
+    if (mapping != null) {
       return mapping;
-    }
-
-    else if(encoding.equals("StandardEncoding")) {
+    } else if (encoding.equals("StandardEncoding")) {
       mapping = new CodePointMapping(encStandardEncoding);
       mappings.put("StandardEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("ISOLatin1Encoding")) {
+    } else if (encoding.equals("ISOLatin1Encoding")) {
       mapping = new CodePointMapping(encISOLatin1Encoding);
       mappings.put("ISOLatin1Encoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("CEEncoding")) {
+    } else if (encoding.equals("CEEncoding")) {
       mapping = new CodePointMapping(encCEEncoding);
       mappings.put("CEEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("MacRomanEncoding")) {
+    } else if (encoding.equals("MacRomanEncoding")) {
       mapping = new CodePointMapping(encMacRomanEncoding);
       mappings.put("MacRomanEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("WinAnsiEncoding")) {
+    } else if (encoding.equals("WinAnsiEncoding")) {
       mapping = new CodePointMapping(encWinAnsiEncoding);
       mappings.put("WinAnsiEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("PDFDocEncoding")) {
+    } else if (encoding.equals("PDFDocEncoding")) {
       mapping = new CodePointMapping(encPDFDocEncoding);
       mappings.put("PDFDocEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("SymbolEncoding")) {
+    } else if (encoding.equals("SymbolEncoding")) {
       mapping = new CodePointMapping(encSymbolEncoding);
       mappings.put("SymbolEncoding", mapping);
       return mapping;
-    }
-
-
-    else if(encoding.equals("ZapfDingbatsEncoding")) {
+    } else if (encoding.equals("ZapfDingbatsEncoding")) {
       mapping = new CodePointMapping(encZapfDingbatsEncoding);
       mappings.put("ZapfDingbatsEncoding", mapping);
       return mapping;
-    }
-
-
-    else {
+    } else {
       return null;
     }
   }
-
 
   private static final int[] encStandardEncoding
       = {
@@ -303,7 +280,6 @@ public class CodePointMapping {
       0xfa, 0x0153, // oe
       0xfb, 0x00DF, // germandbls
   };
-
 
   private static final int[] encISOLatin1Encoding
       = {
@@ -513,7 +489,6 @@ public class CodePointMapping {
       0xfe, 0x00FE, // thorn
       0xff, 0x00FF, // ydieresis
   };
-
 
   private static final int[] encCEEncoding
       = {
@@ -740,7 +715,6 @@ public class CodePointMapping {
       0xff, 0x02D9, // dotaccent
   };
 
-
   private static final int[] encMacRomanEncoding
       = {
       0x20, 0x0020, // space
@@ -957,7 +931,6 @@ public class CodePointMapping {
       0xb4, 0x00A5, // yen
       0x7a, 0x007A, // z
   };
-
 
   private static final int[] encWinAnsiEncoding
       = {
@@ -1183,7 +1156,6 @@ public class CodePointMapping {
       0xfe, 0x00FE, // thorn
       0xff, 0x00FF, // ydieresis
   };
-
 
   private static final int[] encPDFDocEncoding
       = {
@@ -1424,7 +1396,6 @@ public class CodePointMapping {
       0xff, 0x00FF, // ydieresis
   };
 
-
   private static final int[] encSymbolEncoding
       = {
       0x20, 0x0020, // space
@@ -1622,7 +1593,6 @@ public class CodePointMapping {
       0xfd, 0xF8FD, // bracerightmid
       0xfe, 0xF8FE, // bracerightbt
   };
-
 
   private static final int[] encZapfDingbatsEncoding
       = {
@@ -1830,6 +1800,5 @@ public class CodePointMapping {
       0xFD, 0x27BD, // a190
       0xFE, 0x27BE, // a191
   };
-
 
 }

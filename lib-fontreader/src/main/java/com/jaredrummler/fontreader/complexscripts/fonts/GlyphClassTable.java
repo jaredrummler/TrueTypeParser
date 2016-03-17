@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.complexscripts.fonts;
 
 import java.util.Iterator;

@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.complexscripts.util;
 
 import java.util.HashMap;

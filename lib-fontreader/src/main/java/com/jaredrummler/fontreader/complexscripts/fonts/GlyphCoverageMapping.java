@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.complexscripts.fonts;
 
 /**
@@ -27,19 +25,22 @@ package com.jaredrummler.fontreader.complexscripts.fonts;
  */
 public interface GlyphCoverageMapping {
 
-    /**
-     * Obtain size of coverage table, i.e., ciMax + 1, where ciMax is the maximum
-     * coverage index.
-     * @return size of coverage table
-     */
-    int getCoverageSize();
+  /**
+   * Obtain size of coverage table, i.e., ciMax + 1, where ciMax is the maximum
+   * coverage index.
+   *
+   * @return size of coverage table
+   */
+  int getCoverageSize();
 
-    /**
-     * Map glyph identifier (code) to coverge index. Returns -1 if glyph identifier is not in the domain of
-     * the coverage table.
-     * @param gid glyph identifier (code)
-     * @return non-negative glyph coverage index or -1 if glyph identifiers is not mapped by table
-     */
-    int getCoverageIndex(int gid);
+  /**
+   * Map glyph identifier (code) to coverge index. Returns -1 if glyph identifier is not in the domain of
+   * the coverage table.
+   *
+   * @param gid
+   *     glyph identifier (code)
+   * @return non-negative glyph coverage index or -1 if glyph identifiers is not mapped by table
+   */
+  int getCoverageIndex(int gid);
 
 }

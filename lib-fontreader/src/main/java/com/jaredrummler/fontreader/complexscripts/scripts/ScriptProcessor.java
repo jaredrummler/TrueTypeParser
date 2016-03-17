@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.complexscripts.scripts;
 
 import com.jaredrummler.fontreader.fonts.GlyphSubstitutionTable;

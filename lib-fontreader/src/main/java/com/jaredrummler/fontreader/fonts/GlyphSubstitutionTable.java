@@ -15,8 +15,6 @@
  *
  */
 
-/* $Id$ */
-
 package com.jaredrummler.fontreader.fonts;
 
 import com.jaredrummler.fontreader.complexscripts.fonts.AdvancedTypographicTableFormatException;
@@ -1636,7 +1634,7 @@ public class GlyphSubstitutionTable extends GlyphTable {
   public static class LigatureSet {
 
     private final Ligature[] ligatures;
-        // set of ligatures all of which share the first (implied) component
+    // set of ligatures all of which share the first (implied) component
     private final int maxComponents;                        // maximum number of components (including first)
 
     /**
