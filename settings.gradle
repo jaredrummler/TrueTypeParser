@@ -15,4 +15,4 @@
  *
  */
 
-include ':sample', ':lib-truetypeparser'
+include ':sample', ':lib-truetypeparser', ':lib-truetypeparser-light'

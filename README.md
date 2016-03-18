@@ -33,6 +33,15 @@ String copyright = ttfFile.getCopyrightNotice();
 Map<Integer, Map<Integer, Integer>> kerning = ttfFile.getKerning();
 ```
 
+TrueTypeParser Light
+--------------------
+
+If you don't need to read kerning pairs consider using the light version. The light version will read the font file's name, families, weight, and notice. The method count is much smaller.
+
+```groovy
+compile 'com.jaredrummler:truetypeparser-light:1.0.0'
+```
+
 License
 --------
 
